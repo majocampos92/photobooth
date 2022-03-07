@@ -9,12 +9,12 @@ import Foundation
 import Combine
 
 final class HomeViewModel: CatViewModel {
-    @Published var cat: String = ""
+    @Published var cat: URL?
     
     override init(repository: ICatRepository) {
         super.init(repository: repository)
         getCat()
-        getCats(query: "tags=cute&limit=5")
+        getCats(query: "limit=5")
     }
     
     func getCat() {
@@ -27,7 +27,7 @@ final class HomeViewModel: CatViewModel {
                    print("Success!!")
                 }
             }, receiveValue: { response in
-                self.cat = "\(Constants.baseUrl)cat/\(response.id)"
+                self.cat = self.getImageURL(id: response.id)
             }
         )
         .store(in: &disposables)

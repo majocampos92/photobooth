@@ -10,10 +10,10 @@ import SwiftUI
 import Kingfisher
 
 struct HeaderView: View {
-    let image: String
+    let image: URL?
     var body: some View {
         VStack {
-            KFImage(URL(string: image))
+            KFImage(image)
                 .resizable()
                 .opacity(Constants.headerOpacity)
                 .ignoresSafeArea(.all)

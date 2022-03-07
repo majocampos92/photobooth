@@ -32,6 +32,7 @@
 		4CEBDEEE27D5BF7400F61EE2 /* Optional+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBDEED27D5BF7400F61EE2 /* Optional+Unwrap.swift */; };
 		4CEBDEF227D5C38900F61EE2 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 4CEBDEF127D5C38900F61EE2 /* SwinjectAutoregistration */; };
 		4CEBDEF527D5D4AE00F61EE2 /* CatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBDEF427D5D4AE00F61EE2 /* CatViewModel.swift */; };
+		4CEBDEFA27D67EBB00F61EE2 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBDEF927D67EBB00F61EE2 /* ChipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		4CEBDEE827D5B72900F61EE2 /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
 		4CEBDEED27D5BF7400F61EE2 /* Optional+Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Unwrap.swift"; sourceTree = "<group>"; };
 		4CEBDEF427D5D4AE00F61EE2 /* CatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewModel.swift; sourceTree = "<group>"; };
+		4CEBDEF927D67EBB00F61EE2 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
 		8D0A9695CB569CC0B6C7AB95 /* Pods-ChallengeCats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeCats.release.xcconfig"; path = "Target Support Files/Pods-ChallengeCats/Pods-ChallengeCats.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 				4C1917D527D42F4000881B59 /* CarrouselView.swift */,
 				4C1917D327D42AE500881B59 /* HeaderView.swift */,
 				4C1917D127D429C800881B59 /* CardView.swift */,
+				4CEBDEF927D67EBB00F61EE2 /* ChipView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				4C1917C527D40C9D00881B59 /* CatRepository.swift in Sources */,
 				4C1917D627D42F4000881B59 /* CarrouselView.swift in Sources */,
 				4CEBDED927D5AEE500F61EE2 /* Injector.swift in Sources */,
+				4CEBDEFA27D67EBB00F61EE2 /* ChipView.swift in Sources */,
 				4C1917C727D40CCC00881B59 /* ICatRepository.swift in Sources */,
 				4C3BC34D27D2BF3800AC28A3 /* GalleryView.swift in Sources */,
 				4CEBDEF527D5D4AE00F61EE2 /* CatViewModel.swift in Sources */,

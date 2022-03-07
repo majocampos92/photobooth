@@ -20,16 +20,38 @@ struct GalleryView: View {
             count: Constants.galleryGridColumns
         )
         ScrollView {
-            LazyVGrid(columns: columns, spacing: Constants.galleryCardSpacing) {
-                ForEach(viewModel.cats, id: \.self) { item in
-                    KFImage(item.url)
-                        .resizable()
-                        .cornerRadius(Constants.galleryImageCornerRadius)
-                        .frame(width: 120, height: 120)
+            ScrollView(.horizontal) {
+                VStack {
+                    HStack(spacing: 20) {
+                        ForEach(viewModel.tags, id: \.self) { tag in
+                            ChipView(name: tag)
+                                .onTapGesture {
+                                    viewModel.addTag(tag: tag)
+                                }
+                        }
+                    }
                 }
+                .padding()
             }
-            .padding(.all)
+            switch viewModel.state {
+            case .loaded:
+                LazyVGrid(columns: columns, spacing: Constants.galleryCardSpacing) {
+                    ForEach(viewModel.cats, id: \.self) { item in
+                        KFImage(item.url)
+                            .resizable()
+                            .cornerRadius(Constants.galleryImageCornerRadius)
+                            .frame(width: 120, height: 120)
+                    }
+                }
+                .padding(.all)
+            case .loading:
+                ProgressView()
+            case .idle:
+                Color.clear.onAppear(perform: viewModel.getCatTags)
+            case .failed(_):
+                Text("Error!!")
+            }
         }
-        .navigationTitle("Gallery")
+        .navigationTitle("Gallery")        
     }
 }

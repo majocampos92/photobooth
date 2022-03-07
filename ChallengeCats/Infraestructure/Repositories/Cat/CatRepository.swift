@@ -19,4 +19,8 @@ final class CatRepository: ICatRepository {
     func get() -> AnyPublisher<CatResponseModel, Error>? {
         urlSession.publisher(for: "\(Constants.baseUrl)cat?json=true")
     }
+    
+    func getTags() -> AnyPublisher<[String], Error>? {
+        urlSession.publisher(for: "\(Constants.baseUrl)api/tags")
+    }
 }
