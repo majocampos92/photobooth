@@ -12,7 +12,7 @@ enum Injector {
         let container = Container()
         let assambler = Assembler(
             [
-                RepositoryAssembly()
+                ServiceAssembly()
             ],
             container: container
         )

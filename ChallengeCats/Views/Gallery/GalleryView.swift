@@ -10,6 +10,7 @@ import Kingfisher
 
 struct GalleryView: View {
     @StateObject var viewModel: GalleryViewModel = .make()
+    let tag: String
     
     var body: some View {
         let columns = Array(
@@ -20,24 +21,11 @@ struct GalleryView: View {
             count: Constants.galleryGridColumns
         )
         ScrollView {
-            ScrollView(.horizontal) {
-                VStack {
-                    HStack(spacing: 20) {
-                        ForEach(viewModel.tags, id: \.self) { tag in
-                            ChipView(name: tag)
-                                .onTapGesture {
-                                    viewModel.addTag(tag: tag)
-                                }
-                        }
-                    }
-                }
-                .padding()
-            }
             switch viewModel.state {
             case .loaded:
                 LazyVGrid(columns: columns, spacing: Constants.galleryCardSpacing) {
-                    ForEach(viewModel.cats, id: \.self) { item in
-                        KFImage(item.url)
+                    ForEach(viewModel.images, id: \.self) { image in
+                        KFImage(URL(string: image))
                             .resizable()
                             .cornerRadius(Constants.galleryImageCornerRadius)
                             .frame(width: 120, height: 120)
@@ -47,11 +35,11 @@ struct GalleryView: View {
             case .loading:
                 ProgressView()
             case .idle:
-                Color.clear.onAppear(perform: viewModel.getCatTags)
+                Color.clear.onAppear(perform: {viewModel.getImages(tag: tag)})
             case .failed(_):
                 Text("Error!!")
             }
         }
-        .navigationTitle("Gallery")        
+        .navigationBarTitle(tag != "" ? "\(tag)" : "All", displayMode: .inline)
     }
 }
