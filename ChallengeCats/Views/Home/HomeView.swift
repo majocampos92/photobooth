@@ -13,37 +13,68 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                switch viewModel.state {
-                case .loaded:
+            switch viewModel.state {
+            case .idle:
+                Color.clear.onAppear(perform: viewModel.getTags)
+            case .loading:
+                ProgressView()
+            case .failed(_):
+                Text("Error, please try again.")
+                    .onTapGesture(perform: viewModel.getTags)
+            case .loaded:
+                List {
                     ForEach(viewModel.sections, id: \.self) { item in
-                        VStack {
-                            HStack {
-                                Text(item.tag != "" ? "\(item.tag)" : "All")
-                                
+                        Section(
+                            header: NavigationLink(destination: GalleryView(tag: item.tag)) {
+                                Text(!item.tag.isEmpty ? "\(item.tag)" : "All")
+                                    .font(.system(.title3))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.primary)
                                 Spacer()
-                                
-                                NavigationLink("", destination: GalleryView(tag: item.tag))
+                                Image(systemName: "chevron.right")
+                                     .resizable()
+                                     .aspectRatio(contentMode: .fit)
+                                     .frame(width: 7)
+                                     .foregroundColor(.primary)
+                                     .padding()
                             }
-                            HStack {
-                                ForEach(item.images, id: \.self) { image in
-                                    KFImage(URL(string: image))
-                                            .resizable()
-                                            .cornerRadius(Constants.galleryImageCornerRadius)
-                                            .frame(height: 120)
+                        ) {
+                            ScrollView(.horizontal) {
+                                HStack(spacing: Constants.sectionCardSpacing) {
+                                    ForEach(item.images, id: \.self) { image in
+                                        KFImage(URL(string: image))
+                                                .resizable()
+                                                .cornerRadius(Constants.cardCornerRadius)
+                                                .frame(width: 128, height: 104)
+                                    }
                                 }
                             }
                         }
                     }
-                case .loading:
-                    ProgressView()
-                case .idle:
-                    Color.clear.onAppear(perform: viewModel.getSections)
-                case .failed(_):
-                    Text("Error!!")
+                    .listRowInsets(
+                        EdgeInsets(
+                            top: Constants.sectionCardSpacing,
+                            leading: Constants.sectionCardSpacing,
+                            bottom: 0, trailing: 0
+                        )
+                    )
+                    .listRowSeparator(.hidden)
+                    
+                    if !viewModel.tags.isEmpty {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                                .onAppear {
+                                    viewModel.getSections()
+                                }
+                            Spacer()
+                        }
+                        .listRowSeparator(.hidden)
+                    }
                 }
+                .navigationBarTitle("Cats App", displayMode: .inline)
+                .listStyle(PlainListStyle())
             }
-            .navigationTitle("Cats App")
         }
     }
 }

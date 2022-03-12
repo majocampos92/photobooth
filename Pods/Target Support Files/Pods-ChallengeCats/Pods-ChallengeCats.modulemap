@@ -1,6 +1,0 @@
-framework module Pods_ChallengeCats {
-  umbrella header "Pods-ChallengeCats-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -20,26 +20,33 @@ struct GalleryView: View {
             ),
             count: Constants.galleryGridColumns
         )
-        ScrollView {
-            switch viewModel.state {
-            case .loaded:
+        GeometryReader { geometry in
+            let size = geometry.size.width / CGFloat(Constants.galleryGridColumns) - Constants.galleryCardSpacing
+            List {
                 LazyVGrid(columns: columns, spacing: Constants.galleryCardSpacing) {
                     ForEach(viewModel.images, id: \.self) { image in
                         KFImage(URL(string: image))
                             .resizable()
-                            .cornerRadius(Constants.galleryImageCornerRadius)
-                            .frame(width: 120, height: 120)
+                            .frame(width: size, height: size)
                     }
                 }
-                .padding(.all)
-            case .loading:
-                ProgressView()
-            case .idle:
-                Color.clear.onAppear(perform: {viewModel.getImages(tag: tag)})
-            case .failed(_):
-                Text("Error!!")
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
+                
+                if !viewModel.galleryComplete {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                            .onAppear {
+                                viewModel.getImages(tag: tag)
+                            }
+                        Spacer()
+                    }
+                    .listRowSeparator(.hidden)
+                }
             }
+            .navigationBarTitle(!tag.isEmpty ? "\(tag)" : "All", displayMode: .inline)
+            .listStyle(PlainListStyle())
         }
-        .navigationBarTitle(tag != "" ? "\(tag)" : "All", displayMode: .inline)
     }
 }

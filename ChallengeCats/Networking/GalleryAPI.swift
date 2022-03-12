@@ -15,7 +15,7 @@ enum GalleryAPI {
 
 extension GalleryAPI: TargetType {
     var baseURL: URL {
-        guard let url = URL(string: "https://cataas.com") else {
+        guard let url = URL(string: Constants.baseUrl) else {
             fatalError("baseURL could not be configurated.")
         }
         return url

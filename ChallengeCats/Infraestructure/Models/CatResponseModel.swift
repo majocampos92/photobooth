@@ -17,4 +17,8 @@ struct CatResponseModel: Codable {
         case createdAt = "created_at"
         case tags
     }
+    
+    func getImageUrl() -> String {
+        "\(Constants.baseUrl)/cat/\(id)"
+    }
 }

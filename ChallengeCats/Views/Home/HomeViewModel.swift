@@ -14,14 +14,16 @@ final class HomeViewModel: ObservableObject {
     
     private let galleryService: GalleryServiceType
     private var cancellable = Set<AnyCancellable>()
+    private(set) var tags: [String] = []
+    private var currentPage = 0
     
     init(galleryServiceType: GalleryServiceType) {
         galleryService = galleryServiceType
     }
     
-    func getSections() {
+    func getTags() {
         state = .loading
-        Publishers.Zip(galleryService.getTags(), galleryService.getAll(params: CatParams()))
+        galleryService.getTags()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let failure):
@@ -29,19 +31,36 @@ final class HomeViewModel: ObservableObject {
                 case .finished:
                     self.state = .loaded
                 }
-            }, receiveValue: { [weak self] tags, cats in
-                tags.forEach { tag in
-                    let images = cats.filter({ $0.tags.contains(tag) }).map { model in
-                        "\(Constants.baseUrl)cat/\(model.id)"
-                    }.prefix(3)
-                                       
-                    if images.count > 0 {
-                        self?.sections.append(SectionModel(tag: tag, images: Array(images)))
+            }, receiveValue: { items in
+                self.tags = items
+                self.getSections()
+            }
+        )
+        .store(in: &cancellable)
+    }
+    
+    func getSections() {
+        let limit = tags.count > Constants.homeLimitPerPage ? Constants.homeLimitPerPage : tags.count - 1
+        let range = Constants.zero...limit
+        (range).forEach { index in
+            getCats(tag: tags[index])
+        }
+        tags.removeSubrange(range)
+        currentPage += Constants.homeLimitPerPage
+    }
+    
+    private func getCats(tag: String) {
+        galleryService.getAll(params: CatParams(tags: tag, limit: Constants.homeLimitPerPage))
+            .sink(receiveCompletion: { _ in }, receiveValue: { cats in
+                if cats.count > 0 {
+                    let images = cats.map { model in
+                        model.getImageUrl()
                     }
+                    self.sections.append(SectionModel(tag: tag, images: images))
                 }
             }
         )
-            .store(in: &cancellable)
+        .store(in: &cancellable)
     }
 }
 
