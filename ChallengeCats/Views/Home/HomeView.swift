@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  ChallengeCats
 //
-//  Created by Maria Jose Campos on 4/3/22.
+//  Created by Jo on 4/3/22.
 //
 
 import SwiftUI
@@ -12,7 +12,8 @@ struct HomeView: View {
     @StateObject var viewModel: HomeViewModel = .make()
     
     var body: some View {
-        NavigationView {
+        VStack {
+            /// Check the status of the request to show the type of view
             switch viewModel.state {
             case .idle:
                 Color.clear.onAppear(perform: viewModel.getTags)
@@ -60,6 +61,7 @@ struct HomeView: View {
                     )
                     .listRowSeparator(.hidden)
                     
+                    /// Verify that the tags variable still has values to show the loading when making the next request
                     if !viewModel.tags.isEmpty {
                         HStack {
                             Spacer()

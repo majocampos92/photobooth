@@ -2,7 +2,7 @@
 //  GaleryView.swift
 //  ChallengeCats
 //
-//  Created by Maria Jose Campos on 4/3/22.
+//  Created by Jo on 4/3/22.
 //
 
 import SwiftUI
@@ -13,6 +13,7 @@ struct GalleryView: View {
     let tag: String
     
     var body: some View {
+        /// Create grid columns
         let columns = Array(
             repeating: GridItem(
                 .flexible(),
@@ -21,6 +22,7 @@ struct GalleryView: View {
             count: Constants.galleryGridColumns
         )
         GeometryReader { geometry in
+            /// Calculate image size 
             let size = geometry.size.width / CGFloat(Constants.galleryGridColumns) - Constants.galleryCardSpacing
             List {
                 LazyVGrid(columns: columns, spacing: Constants.galleryCardSpacing) {
@@ -33,6 +35,7 @@ struct GalleryView: View {
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
                 
+                /// Verify that the request for all images has not finished to show the load element
                 if !viewModel.galleryComplete {
                     HStack {
                         Spacer()

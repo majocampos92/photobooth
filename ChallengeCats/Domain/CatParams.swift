@@ -2,7 +2,7 @@
 //  CatParams.swift
 //  ChallengeCats
 //
-//  Created by Maria Jose Campos on 11/3/22.
+//  Created by Jo on 11/3/22.
 //
 
 import Foundation

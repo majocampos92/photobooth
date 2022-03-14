@@ -29,6 +29,7 @@
 		4CEBDEEC27D5BEE800F61EE2 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4CEBDEEB27D5BEE800F61EE2 /* Swinject */; };
 		4CEBDEEE27D5BF7400F61EE2 /* Optional+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBDEED27D5BF7400F61EE2 /* Optional+Unwrap.swift */; };
 		4CEBDEF227D5C38900F61EE2 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 4CEBDEF127D5C38900F61EE2 /* SwinjectAutoregistration */; };
+		9183680F27DFD67100368D0C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183680E27DFD67100368D0C /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		4CEBDED827D5AEE500F61EE2 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		4CEBDEDB27D5AFC200F61EE2 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		4CEBDEED27D5BF7400F61EE2 /* Optional+Unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Unwrap.swift"; sourceTree = "<group>"; };
+		9183680E27DFD67100368D0C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		9183681027E0031E00368D0C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,7 @@
 		4C1917D027D429B600881B59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9183680D27DFD63000368D0C /* Splash */,
 				4CEBDECB27D5AB0F00F61EE2 /* Gallery */,
 				4CEBDECA27D5AACE00F61EE2 /* Home */,
 			);
@@ -80,6 +84,7 @@
 		4C3BC33227D29FDA00AC28A3 = {
 			isa = PBXGroup;
 			children = (
+				9183681027E0031E00368D0C /* README.md */,
 				4C3BC33D27D29FDA00AC28A3 /* ChallengeCats */,
 				4C3BC33C27D29FDA00AC28A3 /* Products */,
 			);
@@ -98,7 +103,6 @@
 			children = (
 				4C3BC34427D29FDD00AC28A3 /* Preview Content */,
 				4C43C5D527DAA99F000B4B2E /* Networking */,
-				4C43C5D427DAA949000B4B2E /* Resources */,
 				4CEBDEE127D5B57300F61EE2 /* SupportingFiles */,
 				4CEBDEE227D5B58400F61EE2 /* Models */,
 				4C43C5D327DAA8E5000B4B2E /* Services */,
@@ -125,13 +129,6 @@
 				4C43C5D627DAF7E3000B4B2E /* GalleryService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		4C43C5D427DAA949000B4B2E /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		4C43C5D527DAA99F000B4B2E /* Networking */ = {
@@ -244,6 +241,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		9183680D27DFD63000368D0C /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9183680E27DFD67100368D0C /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3BC34127D29FDA00AC28A3 /* HomeView.swift in Sources */,
+				9183680F27DFD67100368D0C /* SplashView.swift in Sources */,
 				4C43C5E327DB0881000B4B2E /* SectionModel.swift in Sources */,
 				4C43C5E127DAFE7C000B4B2E /* GalleryNetworkService.swift in Sources */,
 				4C41842927DBFE670098D47B /* CatParams.swift in Sources */,
@@ -499,6 +505,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,7 +515,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Maria.ChallengeCats;
+				PRODUCT_BUNDLE_IDENTIFIER = com.photoboothchallenge.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -528,6 +537,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,7 +547,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Maria.ChallengeCats;
+				PRODUCT_BUNDLE_IDENTIFIER = com.photoboothchallenge.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

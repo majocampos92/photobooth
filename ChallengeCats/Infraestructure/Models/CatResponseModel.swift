@@ -2,7 +2,7 @@
 //  Cat.swift
 //  ChallengeCats
 //
-//  Created by Maria Jose Campos on 5/3/22.
+//  Created by Jo on 5/3/22.
 //
 
 import Foundation
@@ -18,6 +18,7 @@ struct CatResponseModel: Codable {
         case tags
     }
     
+    /// Returns the cat image path
     func getImageUrl() -> String {
         "\(Constants.baseUrl)/cat/\(id)"
     }

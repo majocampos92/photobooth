@@ -2,7 +2,7 @@
 //  ChallengeCatsApp.swift
 //  ChallengeCats
 //
-//  Created by Maria Jose Campos on 4/3/22.
+//  Created by Jo on 4/3/22.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct ChallengeCatsApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: .make())
+            SplashView()
         }
     }
 }

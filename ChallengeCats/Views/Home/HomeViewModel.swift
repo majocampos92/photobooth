@@ -2,29 +2,31 @@
 //  ViewModel.swift
 //  ChallengeCats
 //
-//  Created by Maria Jose Campos on 5/3/22.
+//  Created by Jo on 5/3/22.
 //
 
 import Foundation
 import Combine
 
 final class HomeViewModel: ObservableObject {
-    @Published var sections: [SectionModel] = []
-    @Published private(set) var state = State.idle
+    @Published var sections: [SectionModel] = [] /// [This property is] for show cats by tag
+    @Published private(set) var state = State.idle /// [This property is] for the request status
     
-    private let galleryService: GalleryServiceType
-    private var cancellable = Set<AnyCancellable>()
-    private(set) var tags: [String] = []
-    private var currentPage = 0
+    private let galleryService: GalleryServiceType /// [This property is] the service for get cat data
+    private var cancellable = Set<AnyCancellable>() /// [This property is] management to cancel combines
+    private(set) var tags: [String] = [] /// [This property is] the cat tags
+    private var currentPage = 0 /// [This property is] to identify which data page you are on for the request
     
     init(galleryServiceType: GalleryServiceType) {
         galleryService = galleryServiceType
     }
     
+    /// Use this method to get cat tags
     func getTags() {
         state = .loading
         galleryService.getTags()
             .sink(receiveCompletion: { completion in
+                /// Add request result to status variable
                 switch completion {
                 case .failure(let failure):
                     self.state = .failed(failure)
@@ -32,31 +34,35 @@ final class HomeViewModel: ObservableObject {
                     self.state = .loaded
                 }
             }, receiveValue: { items in
-                self.tags = items
-                self.getSections()
+                self.tags = items /// Add response to tags variable
+                self.getSections() /// Invoke function to generate sections with cats
             }
         )
         .store(in: &cancellable)
     }
     
+    /// Use this method to generate sections cats by tag with pagination
     func getSections() {
+        /// Check the available tags to obtain the data limit to request 
         let limit = tags.count > Constants.homeLimitPerPage ? Constants.homeLimitPerPage : tags.count - 1
-        let range = Constants.zero...limit
+        let range = Constants.zero...limit /// Range of requests to perform
         (range).forEach { index in
-            getCats(tag: tags[index])
+            getCats(tag: tags[index]) /// Invoke function to get cats by current loop tag
         }
-        tags.removeSubrange(range)
-        currentPage += Constants.homeLimitPerPage
+        tags.removeSubrange(range) /// Remove requested tags
+        currentPage += Constants.homeLimitPerPage /// Update page for next request
     }
     
+    /// Use this method to get cats by tag
     private func getCats(tag: String) {
         galleryService.getAll(params: CatParams(tags: tag, limit: Constants.homeLimitPerPage))
             .sink(receiveCompletion: { _ in }, receiveValue: { cats in
                 if cats.count > 0 {
+                    /// Create new array with the cat image url
                     let images = cats.map { model in
                         model.getImageUrl()
                     }
-                    self.sections.append(SectionModel(tag: tag, images: images))
+                    self.sections.append(SectionModel(tag: tag, images: images)) /// Add new section to array variable
                 }
             }
         )
@@ -65,6 +71,7 @@ final class HomeViewModel: ObservableObject {
 }
 
 extension HomeViewModel {
+    /// Enumeration for the cases in which a request is found
     enum State {
         case idle
         case loading
