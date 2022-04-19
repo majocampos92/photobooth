@@ -2,8 +2,6 @@
 //  RepositoryAssembly.swift
 //  ChallengeCats
 //
-//  Created by Jo on 6/3/22.
-//
 
 import Swinject
 import SwinjectAutoregistration

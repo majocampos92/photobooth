@@ -1,11 +1,16 @@
 /*
   Localizable.strings
   ChallengeCats
-  
 */
 
 "appName" = "Photobooth";
+"emptyState" = "Oops, loos like there's no data...";
+
+// MARK: - Splash
+"catsApp" = "Your Cats App";
+"homeAssesment" = "Take Home Assesment";
+"tapMe" = "Tap me";
 
 // MARK: - Home
 
-"emptyState" = "Oops, loos like there's no data...";
+"all" = "All";

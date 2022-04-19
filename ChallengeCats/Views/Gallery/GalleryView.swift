@@ -2,8 +2,6 @@
 //  GaleryView.swift
 //  ChallengeCats
 //
-//  Created by Jo on 4/3/22.
-//
 
 import SwiftUI
 import Kingfisher
@@ -19,6 +17,7 @@ struct GalleryView: View {
     )
     
     var body: some View {
+        let title = !tag.isEmpty ? tag : L10n.all
         VStack {
             if viewModel.showEmptyState {
                 emptyState
@@ -26,7 +25,10 @@ struct GalleryView: View {
                 photos
             }
         }
-        .navigationBarTitle(L10n.appName, displayMode: .inline)
+        .navigationBarTitle(title, displayMode: .inline)
+        .onAppear {
+            viewModel.getPhotos(tag: tag)
+        }
     }
     
     var photos: some View {
@@ -48,6 +50,7 @@ struct GalleryView: View {
                 }
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
+                
                 if !viewModel.galleryComplete {
                     HStack {
                         Spacer()

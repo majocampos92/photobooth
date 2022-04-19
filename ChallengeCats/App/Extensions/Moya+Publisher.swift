@@ -2,7 +2,6 @@
 //  Moya+Publisher.swift
 //  ChallengeCats
 //
-//
 
 import Foundation
 import Moya

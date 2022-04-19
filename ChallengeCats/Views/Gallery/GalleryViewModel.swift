@@ -2,8 +2,6 @@
 //  GalleryViewModel.swift
 //  ChallengeCats
 //
-//  Created by Jo on 6/3/22.
-//
 
 import Foundation
 import Combine
@@ -11,8 +9,8 @@ import Combine
 final class GalleryViewModel: ObservableObject {
     
     @Published var photos: [Photo] = [] /// [This property is] for show image cats
-    @Published private(set) var showEmptyState = false
-    var galleryComplete = false /// [This property is] for verify that complete all images request
+    @Published private(set) var showEmptyState = false /// [This property is] for show or hide empty state
+    var galleryComplete = true /// [This property is] for verify that complete all images request
 
     private let galleryService: GalleryServiceType /// [This property is] the service for get cat data
     private var cancellable = Set<AnyCancellable>() /// [This property is] management to cancel combines
@@ -27,12 +25,12 @@ final class GalleryViewModel: ObservableObject {
         let params = CatParams(tags: tag, skip: currentPage, limit: Constants.galleryLimitPerPage)
         galleryService.getAll(params: params)
             .sink(receiveCompletion: { _ in }, receiveValue: { cats in
-                /// Add new images to array variable
                 self.photos.append(contentsOf: cats.map { model in
                     Photo(path: model.getImageUrl())
                 })
-                self.currentPage += Constants.galleryLimitPerPage /// Increase the page to request
+                self.currentPage += Constants.galleryLimitPerPage
                 self.galleryComplete = cats.count < Constants.galleryLimitPerPage /// Verify that obtaining images finished
+                self.showEmptyState = self.photos.isEmpty
             }
         )
         .store(in: &cancellable)

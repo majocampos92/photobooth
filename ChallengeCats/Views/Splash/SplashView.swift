@@ -2,8 +2,6 @@
 //  SplashView.swift
 //  ChallengeCats
 //
-//  Created by Jo on 14/3/22.
-//
 
 import SwiftUI
 
@@ -15,27 +13,37 @@ struct SplashView: View {
                 Image("catrainbow")
                      .resizable()
                      .aspectRatio(contentMode: .fill)
-                     .frame(width: 150, height: 150)
-                     .cornerRadius(100)
+                     .frame(width: Constants.splashImageSize, height: Constants.splashImageSize)
+                     .clipShape(Circle())
                 
-                Text("Your Cats App")
+                Text(L10n.catsApp)
                     .font(.system(.title3))
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .padding()
-                Text("Photobooth")
+                Text(L10n.appName)
                     .foregroundColor(.primary)
-                Text("Take Home Assesment")
+                Text(L10n.homeAssesment)
                     .foregroundColor(.primary)
-                NavigationLink(destination: GalleryView(tag: "")) {
-                    Text("Tap me")
+                
+                NavigationLink(destination: HomeView()) {
+                    Text(L10n.tapMe)
                         .font(.system(.title3))
                         .fontWeight(.bold)
-                        .padding(EdgeInsets(top: 20, leading: 80, bottom: 20, trailing: 80))
+                        .padding(
+                            EdgeInsets(
+                                top: Constants.splashTopBottomPaddingButton,
+                                leading: Constants.splashLeadingTrailingPaddingButton,
+                                bottom: Constants.splashTopBottomPaddingButton,
+                                trailing: Constants.splashLeadingTrailingPaddingButton
+                            )
+                        )
                         .background(Color.accentColor)
                         .foregroundColor(.white)
-                        .cornerRadius(30)
+                        .cornerRadius(Constants.splashButtonCornerRadius)
                 }
+                .navigationBarTitle(Constants.empty)
+                .navigationBarHidden(true)
             }
         }
     }

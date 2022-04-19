@@ -2,8 +2,6 @@
 //  GalleryNetworkService.swift
 //  ChallengeCats
 //
-//  Created by Jo on 10/3/22.
-//
 
 import Foundation
 import Moya

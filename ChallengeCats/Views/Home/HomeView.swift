@@ -2,8 +2,6 @@
 //  ContentView.swift
 //  ChallengeCats
 //
-//  Created by Jo on 4/3/22.
-//
 
 import SwiftUI
 import Kingfisher
@@ -13,12 +11,10 @@ struct HomeView: View {
     @StateObject var viewModel: HomeViewModel = .make()
     
     var body: some View {
-        VStack {
-            if viewModel.showEmptyState {
-                emptyState
-            } else {
-                sections
-            }
+        if viewModel.showEmptyState {
+            emptyState
+        } else {
+            sections
         }
     }
     
@@ -28,7 +24,7 @@ struct HomeView: View {
                 let tag = model?.tag ?? Constants.empty
                 Section(
                     header: NavigationLink(destination: GalleryView(tag: tag)) {
-                        Text(!tag.isEmpty ? "\(tag)" : "All")
+                        Text(!tag.isEmpty ? tag : L10n.all)
                             .font(.system(.title3))
                             .fontWeight(.bold)
                             .foregroundColor(.primary)
@@ -39,18 +35,18 @@ struct HomeView: View {
                              .frame(width: 7)
                              .foregroundColor(.primary)
                              .padding()
-                    } .skeleton(with: loading)
+                    }.skeleton(with: loading)
                 ) {
                     ScrollView(.horizontal) {
-                        HStack(spacing: Constants.sectionCardSpacing) {
+                        HStack(spacing: Constants.homeSectionCardSpacing) {
                             SkeletonForEach(with: model?.images ?? [], quantity: Constants.homeLimitPerPage) { photoLoading, item in
                                 let imageUrl = URL(string: item?.path ?? Constants.empty)
                                 KFImage(imageUrl)
                                         .resizable()
-                                        .cornerRadius(Constants.cardCornerRadius)
+                                        .cornerRadius(Constants.homeCardCornerRadius)
                                         .skeleton(with: photoLoading)
-                                        .shape(type: .rectangle)
-                                        .frame(width: 128, height: 104)
+                                        .shape(type: .rounded(.radius(Constants.homeCardCornerRadius)))
+                                        .frame(width: Constants.homeImageSize, height: Constants.homeImageSize)
                             }
                         }
                     }
@@ -58,14 +54,14 @@ struct HomeView: View {
             }
             .listRowInsets(
                 EdgeInsets(
-                    top: Constants.sectionCardSpacing,
-                    leading: Constants.sectionCardSpacing,
-                    bottom: 0, trailing: 0
+                    top: Constants.homeSectionCardSpacing,
+                    leading: Constants.homeSectionCardSpacing,
+                    bottom: CGFloat(Constants.zero),
+                    trailing: CGFloat(Constants.zero)
                 )
             )
             .listRowSeparator(.hidden)
             
-            /// Verify that the tags variable still has values to show the loading when making the next request
             if !viewModel.tags.isEmpty {
                 HStack {
                     Spacer()
@@ -78,7 +74,7 @@ struct HomeView: View {
                 .listRowSeparator(.hidden)
             }
         }
-        .navigationBarTitle("Cats App", displayMode: .inline)
+        .navigationBarTitle(L10n.appName, displayMode: .inline)
         .listStyle(PlainListStyle())
     }
     

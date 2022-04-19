@@ -2,7 +2,6 @@
 //  Keys.swift
 //  ChallengeCats
 //
-//
 
 enum Keys {
     static let tags = "tags"

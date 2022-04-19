@@ -2,7 +2,6 @@
 //  Endpoints.swift
 //  ChallengeCats
 //
-//
 
 enum Endpoints {
     static let getTags = "/api/tags"

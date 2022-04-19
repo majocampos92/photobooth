@@ -2,8 +2,6 @@
 //  ChallengeCatsApp.swift
 //  ChallengeCats
 //
-//  Created by Jo on 4/3/22.
-//
 
 import SwiftUI
 
