@@ -31,7 +31,7 @@ Challenge following Service-oriented Architecture and MVVM Pattern.
 ### 🗂 Folder Structure
 
 ```swift
-Photobooth
+ChallengeCats
 |-- Services
 |   -- Models
 |-- SupportingFiles
@@ -42,9 +42,9 @@ Photobooth
 |-- Dependencies // Dependencies Registrations into a DI Container
 |-- Views // App Screens with SwiftUI
 |   -- Models
-|   -- Components
-|   -- Detail
-|   -- Gallery 
+|   -- Splash
+|   -- Gallery
+|   -- Home 
 ```
 
 ### 📦 Dependency Injection
