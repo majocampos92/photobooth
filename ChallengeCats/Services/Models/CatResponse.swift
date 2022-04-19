@@ -3,7 +3,7 @@
 //  ChallengeCats
 //
 
-struct CatResponseModel: Codable {
+struct CatResponse: Codable {
     let id: String
     let createdAt: String
     let tags: [String]

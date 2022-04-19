@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C1917BD27D408B300881B59 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4C1917BC27D408B300881B59 /* Kingfisher */; };
 		4C1917C127D408F700881B59 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1917C027D408F700881B59 /* HomeViewModel.swift */; };
-		4C1917C327D40B2800881B59 /* CatResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1917C227D40B2800881B59 /* CatResponseModel.swift */; };
+		4C1917C327D40B2800881B59 /* CatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1917C227D40B2800881B59 /* CatResponse.swift */; };
 		4C1917CB27D40F9B00881B59 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1917CA27D40F9B00881B59 /* Constants.swift */; };
 		4C3BC33F27D29FDA00AC28A3 /* ChallengeCatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3BC33E27D29FDA00AC28A3 /* ChallengeCatsApp.swift */; };
 		4C3BC34127D29FDA00AC28A3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3BC34027D29FDA00AC28A3 /* HomeView.swift */; };
@@ -39,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		4C1917C027D408F700881B59 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		4C1917C227D40B2800881B59 /* CatResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatResponseModel.swift; sourceTree = "<group>"; };
+		4C1917C227D40B2800881B59 /* CatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatResponse.swift; sourceTree = "<group>"; };
 		4C1917CA27D40F9B00881B59 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C3BC33B27D29FDA00AC28A3 /* ChallengeCats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeCats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3BC33E27D29FDA00AC28A3 /* ChallengeCatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCatsApp.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				4C41842827DBFE670098D47B /* CatParams.swift */,
-				4C1917C227D40B2800881B59 /* CatResponseModel.swift */,
+				4C1917C227D40B2800881B59 /* CatResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 				4CEBDEC827D5A8B000F61EE2 /* GalleryViewModel.swift in Sources */,
 				4C43C5DF27DAFB84000B4B2E /* GalleryAPI.swift in Sources */,
 				4C3BC33F27D29FDA00AC28A3 /* ChallengeCatsApp.swift in Sources */,
-				4C1917C327D40B2800881B59 /* CatResponseModel.swift in Sources */,
+				4C1917C327D40B2800881B59 /* CatResponse.swift in Sources */,
 				4C1917C127D408F700881B59 /* HomeViewModel.swift in Sources */,
 				4CEBDED927D5AEE500F61EE2 /* Injector.swift in Sources */,
 				4C3BC34D27D2BF3800AC28A3 /* GalleryView.swift in Sources */,

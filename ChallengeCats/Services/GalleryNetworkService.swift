@@ -8,7 +8,7 @@ import Moya
 import Combine
 
 protocol GalleryServiceType {
-    func getAll(params: CatParams) -> AnyPublisher<[CatResponseModel], Error>
+    func getAll(params: CatParams) -> AnyPublisher<[CatResponse], Error>
     func getTags() -> AnyPublisher<[String], Error>
 }
 
@@ -21,7 +21,7 @@ struct GalleryNetworkService: GalleryServiceType {
     }
     
     /// Returns a cat list from API
-    func getAll(params: CatParams) -> AnyPublisher<[CatResponseModel], Error> {
+    func getAll(params: CatParams) -> AnyPublisher<[CatResponse], Error> {
         api.requestPublisher(.cats(params: params))
     }
     

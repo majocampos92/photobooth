@@ -39,7 +39,7 @@ struct HomeView: View {
                 ) {
                     ScrollView(.horizontal) {
                         HStack(spacing: Constants.homeSectionCardSpacing) {
-                            SkeletonForEach(with: model?.images ?? [], quantity: Constants.homeLimitPerPage) { photoLoading, item in
+                            SkeletonForEach(with: model?.photos ?? [], quantity: Constants.homeLimitPerPage) { photoLoading, item in
                                 let imageUrl = URL(string: item?.path ?? Constants.empty)
                                 KFImage(imageUrl)
                                         .resizable()

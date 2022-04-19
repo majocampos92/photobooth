@@ -12,9 +12,9 @@ final class HomeViewModel: ObservableObject {
     
     private let galleryService: GalleryServiceType /// [This property is] the service for get cat data
     private var cancellable = Set<AnyCancellable>() /// [This property is] management to cancel combines
-    private(set) var tags: [String] = [] /// [This property is] the cat tags
     private var currentPage = Constants.zero /// [This property is] to identify which data page you are on for the request
-    
+    private(set) var tags: [String] = [] /// [This property is] the cat tags
+   
     init(galleryServiceType: GalleryServiceType) {
         galleryService = galleryServiceType
         getTags()
@@ -37,8 +37,11 @@ final class HomeViewModel: ObservableObject {
         galleryService.getTags()
             .sink(receiveCompletion: { _ in },
              receiveValue: { items in
-                self.tags = items
-                self.getSections()
+                self.showEmptyState = items.isEmpty
+                if !items.isEmpty {
+                    self.tags = items
+                    self.getSections()
+                }
             }
         )
         .store(in: &cancellable)
@@ -53,7 +56,7 @@ final class HomeViewModel: ObservableObject {
                      let images = cats.map { model in
                          Photo(path: model.getImageUrl())
                      }
-                     self.sections.append(SectionModel(tag: tag, images: images)) /// Add new section to array variable
+                     self.sections.append(SectionModel(tag: tag, photos: images)) /// Add new section to array variable
                  }
                  self.showEmptyState = self.sections.isEmpty
              }
