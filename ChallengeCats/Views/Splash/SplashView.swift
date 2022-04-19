@@ -27,7 +27,7 @@ struct SplashView: View {
                     .foregroundColor(.primary)
                 Text("Take Home Assesment")
                     .foregroundColor(.primary)
-                NavigationLink(destination: HomeView()) {
+                NavigationLink(destination: GalleryView(tag: "")) {
                     Text("Tap me")
                         .font(.system(.title3))
                         .fontWeight(.bold)

@@ -16,11 +16,8 @@ public struct ServiceAssembly: Assembly {
         container.register(MoyaProvider<GalleryAPI>.self) { _ in
             MoyaProvider<GalleryAPI>()
         }
-        container.register(GalleryNetworkService.self) { resolver in
-            GalleryNetworkService(provider: resolver~>)
-        }
         container.register(GalleryServiceType.self) { resolver in
-            GalleryService(service: resolver~>)
+            GalleryNetworkService(provider: resolver~>)
         }
     }
 }

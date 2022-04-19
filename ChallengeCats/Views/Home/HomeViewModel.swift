@@ -10,7 +10,7 @@ import Combine
 
 final class HomeViewModel: ObservableObject {
     @Published var sections: [SectionModel] = [] /// [This property is] for show cats by tag
-    @Published private(set) var state = State.idle /// [This property is] for the request status
+    @Published private(set) var showEmptyState = false
     
     private let galleryService: GalleryServiceType /// [This property is] the service for get cat data
     private var cancellable = Set<AnyCancellable>() /// [This property is] management to cancel combines
@@ -23,17 +23,9 @@ final class HomeViewModel: ObservableObject {
     
     /// Use this method to get cat tags
     func getTags() {
-        state = .loading
         galleryService.getTags()
-            .sink(receiveCompletion: { completion in
-                /// Add request result to status variable
-                switch completion {
-                case .failure(let failure):
-                    self.state = .failed(failure)
-                case .finished:
-                    self.state = .loaded
-                }
-            }, receiveValue: { items in
+            .sink(receiveCompletion: { _ in },
+             receiveValue: { items in
                 self.tags = items /// Add response to tags variable
                 self.getSections() /// Invoke function to generate sections with cats
             }
@@ -60,23 +52,13 @@ final class HomeViewModel: ObservableObject {
                 if cats.count > 0 {
                     /// Create new array with the cat image url
                     let images = cats.map { model in
-                        model.getImageUrl()
+                        Photo(path: model.getImageUrl())
                     }
                     self.sections.append(SectionModel(tag: tag, images: images)) /// Add new section to array variable
                 }
             }
         )
         .store(in: &cancellable)
-    }
-}
-
-extension HomeViewModel {
-    /// Enumeration for the cases in which a request is found
-    enum State {
-        case idle
-        case loading
-        case failed(Error)
-        case loaded
     }
 }
 

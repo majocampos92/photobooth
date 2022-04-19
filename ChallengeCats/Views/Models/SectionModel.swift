@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct SectionModel: Hashable {
+struct SectionModel: Identifiable {
     let id = UUID()
     let tag: String
-    let images: [String]
+    let images: [Photo]
+}
+
+struct Photo: Identifiable {
+    let id = UUID()
+    let path: String
 }

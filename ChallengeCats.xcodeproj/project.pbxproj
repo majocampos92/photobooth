@@ -17,12 +17,17 @@
 		4C3BC34627D29FDD00AC28A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3BC34527D29FDD00AC28A3 /* Preview Assets.xcassets */; };
 		4C3BC34D27D2BF3800AC28A3 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3BC34C27D2BF3800AC28A3 /* GalleryView.swift */; };
 		4C41842927DBFE670098D47B /* CatParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C41842827DBFE670098D47B /* CatParams.swift */; };
-		4C43C5D727DAF7E3000B4B2E /* GalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43C5D627DAF7E3000B4B2E /* GalleryService.swift */; };
 		4C43C5DB27DAFB08000B4B2E /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 4C43C5DA27DAFB08000B4B2E /* CombineMoya */; };
 		4C43C5DD27DAFB08000B4B2E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 4C43C5DC27DAFB08000B4B2E /* Moya */; };
 		4C43C5DF27DAFB84000B4B2E /* GalleryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43C5DE27DAFB84000B4B2E /* GalleryAPI.swift */; };
 		4C43C5E127DAFE7C000B4B2E /* GalleryNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43C5E027DAFE7C000B4B2E /* GalleryNetworkService.swift */; };
 		4C43C5E327DB0881000B4B2E /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43C5E227DB0881000B4B2E /* SectionModel.swift */; };
+		4C5266DF280E45F2000A57FE /* Moya+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5266DE280E45F2000A57FE /* Moya+Publisher.swift */; };
+		4C5266E2280E4746000A57FE /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4C5266E1280E4746000A57FE /* SkeletonUI */; };
+		4C5266E4280E4786000A57FE /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5266E3280E4786000A57FE /* Keys.swift */; };
+		4C5266E6280E47A1000A57FE /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5266E5280E47A1000A57FE /* Endpoints.swift */; };
+		4C5266E8280E4BC9000A57FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C5266E7280E4BC9000A57FE /* Localizable.strings */; };
+		4C5266EA280E4C37000A57FE /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5266E9280E4C37000A57FE /* L10n.swift */; };
 		4CEBDEC827D5A8B000F61EE2 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBDEC727D5A8B000F61EE2 /* GalleryViewModel.swift */; };
 		4CEBDED927D5AEE500F61EE2 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBDED827D5AEE500F61EE2 /* Injector.swift */; };
 		4CEBDEDC27D5AFC200F61EE2 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBDEDB27D5AFC200F61EE2 /* ServiceAssembly.swift */; };
@@ -43,10 +48,14 @@
 		4C3BC34527D29FDD00AC28A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C3BC34C27D2BF3800AC28A3 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		4C41842827DBFE670098D47B /* CatParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatParams.swift; sourceTree = "<group>"; };
-		4C43C5D627DAF7E3000B4B2E /* GalleryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryService.swift; sourceTree = "<group>"; };
 		4C43C5DE27DAFB84000B4B2E /* GalleryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryAPI.swift; sourceTree = "<group>"; };
 		4C43C5E027DAFE7C000B4B2E /* GalleryNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNetworkService.swift; sourceTree = "<group>"; };
 		4C43C5E227DB0881000B4B2E /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		4C5266DE280E45F2000A57FE /* Moya+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Publisher.swift"; sourceTree = "<group>"; };
+		4C5266E3280E4786000A57FE /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		4C5266E5280E47A1000A57FE /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		4C5266E7280E4BC9000A57FE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		4C5266E9280E4C37000A57FE /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		4CEBDEC727D5A8B000F61EE2 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		4CEBDED827D5AEE500F61EE2 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		4CEBDEDB27D5AFC200F61EE2 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
@@ -61,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1917BD27D408B300881B59 /* Kingfisher in Frameworks */,
+				4C5266E2280E4746000A57FE /* SkeletonUI in Frameworks */,
 				4CEBDEEC27D5BEE800F61EE2 /* Swinject in Frameworks */,
 				4C43C5DB27DAFB08000B4B2E /* CombineMoya in Frameworks */,
 				4C43C5DD27DAFB08000B4B2E /* Moya in Frameworks */,
@@ -74,6 +84,7 @@
 		4C1917D027D429B600881B59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C5266DC280E44FB000A57FE /* Models */,
 				9183680D27DFD63000368D0C /* Splash */,
 				4CEBDECB27D5AB0F00F61EE2 /* Gallery */,
 				4CEBDECA27D5AACE00F61EE2 /* Home */,
@@ -101,16 +112,13 @@
 		4C3BC33D27D29FDA00AC28A3 /* ChallengeCats */ = {
 			isa = PBXGroup;
 			children = (
-				4C3BC34427D29FDD00AC28A3 /* Preview Content */,
-				4C43C5D527DAA99F000B4B2E /* Networking */,
-				4CEBDEE127D5B57300F61EE2 /* SupportingFiles */,
-				4CEBDEE227D5B58400F61EE2 /* Models */,
 				4C43C5D327DAA8E5000B4B2E /* Services */,
-				4C1917D027D429B600881B59 /* Views */,
+				4CEBDEE127D5B57300F61EE2 /* SupportingFiles */,
+				4C43C5D527DAA99F000B4B2E /* Networking */,
 				4CEBDEE027D5B4E200F61EE2 /* App */,
-				4CEBDEDF27D5B4BA00F61EE2 /* Domain */,
-				4CEBDEDE27D5B4A700F61EE2 /* Infraestructure */,
 				4CEBDED727D5AE1E00F61EE2 /* Dependencies */,
+				4C1917D027D429B600881B59 /* Views */,
+				4C3BC34427D29FDD00AC28A3 /* Preview Content */,
 			);
 			path = ChallengeCats;
 			sourceTree = "<group>";
@@ -126,7 +134,8 @@
 		4C43C5D327DAA8E5000B4B2E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4C43C5D627DAF7E3000B4B2E /* GalleryService.swift */,
+				4C5266DD280E453D000A57FE /* Models */,
+				4C43C5E027DAFE7C000B4B2E /* GalleryNetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -135,9 +144,27 @@
 			isa = PBXGroup;
 			children = (
 				4C43C5DE27DAFB84000B4B2E /* GalleryAPI.swift */,
-				4C43C5E027DAFE7C000B4B2E /* GalleryNetworkService.swift */,
+				4C5266E3280E4786000A57FE /* Keys.swift */,
+				4C5266E5280E47A1000A57FE /* Endpoints.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		4C5266DC280E44FB000A57FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C43C5E227DB0881000B4B2E /* SectionModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C5266DD280E453D000A57FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C41842827DBFE670098D47B /* CatParams.swift */,
+				4C1917C227D40B2800881B59 /* CatResponseModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4CEBDECA27D5AACE00F61EE2 /* Home */ = {
@@ -162,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				4CEBDEED27D5BF7400F61EE2 /* Optional+Unwrap.swift */,
+				4C5266DE280E45F2000A57FE /* Moya+Publisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,22 +211,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		4CEBDEDE27D5B4A700F61EE2 /* Infraestructure */ = {
-			isa = PBXGroup;
-			children = (
-				4CEBDEE527D5B61300F61EE2 /* Models */,
-			);
-			path = Infraestructure;
-			sourceTree = "<group>";
-		};
-		4CEBDEDF27D5B4BA00F61EE2 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				4C41842827DBFE670098D47B /* CatParams.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		4CEBDEE027D5B4E200F61EE2 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,24 +225,10 @@
 			isa = PBXGroup;
 			children = (
 				4C3BC33E27D29FDA00AC28A3 /* ChallengeCatsApp.swift */,
+				4C5266E7280E4BC9000A57FE /* Localizable.strings */,
+				4C5266E9280E4C37000A57FE /* L10n.swift */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		4CEBDEE227D5B58400F61EE2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4C43C5E227DB0881000B4B2E /* SectionModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		4CEBDEE527D5B61300F61EE2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4C1917C227D40B2800881B59 /* CatResponseModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		4CEBDEE627D5B66100F61EE2 /* Assets */ = {
@@ -272,6 +270,7 @@
 				4CEBDEF127D5C38900F61EE2 /* SwinjectAutoregistration */,
 				4C43C5DA27DAFB08000B4B2E /* CombineMoya */,
 				4C43C5DC27DAFB08000B4B2E /* Moya */,
+				4C5266E1280E4746000A57FE /* SkeletonUI */,
 			);
 			productName = ChallengeCats;
 			productReference = 4C3BC33B27D29FDA00AC28A3 /* ChallengeCats.app */;
@@ -306,6 +305,7 @@
 				4CEBDEEA27D5BEE800F61EE2 /* XCRemoteSwiftPackageReference "Swinject" */,
 				4CEBDEF027D5C38900F61EE2 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
 				4C43C5D927DAFB08000B4B2E /* XCRemoteSwiftPackageReference "Moya" */,
+				4C5266E0280E4746000A57FE /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 			);
 			productRefGroup = 4C3BC33C27D29FDA00AC28A3 /* Products */;
 			projectDirPath = "";
@@ -322,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3BC34627D29FDD00AC28A3 /* Preview Assets.xcassets in Resources */,
+				4C5266E8280E4BC9000A57FE /* Localizable.strings in Resources */,
 				4C3BC34327D29FDD00AC28A3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +355,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3BC34127D29FDA00AC28A3 /* HomeView.swift in Sources */,
+				4C5266E4280E4786000A57FE /* Keys.swift in Sources */,
 				9183680F27DFD67100368D0C /* SplashView.swift in Sources */,
+				4C5266DF280E45F2000A57FE /* Moya+Publisher.swift in Sources */,
 				4C43C5E327DB0881000B4B2E /* SectionModel.swift in Sources */,
 				4C43C5E127DAFE7C000B4B2E /* GalleryNetworkService.swift in Sources */,
 				4C41842927DBFE670098D47B /* CatParams.swift in Sources */,
@@ -362,13 +365,14 @@
 				4CEBDEC827D5A8B000F61EE2 /* GalleryViewModel.swift in Sources */,
 				4C43C5DF27DAFB84000B4B2E /* GalleryAPI.swift in Sources */,
 				4C3BC33F27D29FDA00AC28A3 /* ChallengeCatsApp.swift in Sources */,
-				4C43C5D727DAF7E3000B4B2E /* GalleryService.swift in Sources */,
 				4C1917C327D40B2800881B59 /* CatResponseModel.swift in Sources */,
 				4C1917C127D408F700881B59 /* HomeViewModel.swift in Sources */,
 				4CEBDED927D5AEE500F61EE2 /* Injector.swift in Sources */,
 				4C3BC34D27D2BF3800AC28A3 /* GalleryView.swift in Sources */,
 				4C1917CB27D40F9B00881B59 /* Constants.swift in Sources */,
+				4C5266E6280E47A1000A57FE /* Endpoints.swift in Sources */,
 				4CEBDEEE27D5BF7400F61EE2 /* Optional+Unwrap.swift in Sources */,
+				4C5266EA280E4C37000A57FE /* L10n.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +600,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		4C5266E0280E4746000A57FE /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.7;
+			};
+		};
 		4CEBDEEA27D5BEE800F61EE2 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -630,6 +642,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4C43C5D927DAFB08000B4B2E /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		4C5266E1280E4746000A57FE /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C5266E0280E4746000A57FE /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
 		};
 		4CEBDEEB27D5BEE800F61EE2 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;

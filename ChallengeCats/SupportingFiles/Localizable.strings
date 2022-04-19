@@ -1,0 +1,11 @@
+/*
+  Localizable.strings
+  ChallengeCats
+  
+*/
+
+"appName" = "Photobooth";
+
+// MARK: - Home
+
+"emptyState" = "Oops, loos like there's no data...";

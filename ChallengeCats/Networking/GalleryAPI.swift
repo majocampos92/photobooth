@@ -9,8 +9,8 @@ import Moya
 import Foundation
 
 enum GalleryAPI {
-    case getTags
-    case getAll(params: CatParams)
+    case tags
+    case cats(params: CatParams)
 }
 
 extension GalleryAPI: TargetType {
@@ -23,10 +23,10 @@ extension GalleryAPI: TargetType {
     
     var path: String {
         switch self {
-        case .getTags:
-            return "/api/tags"
-        case .getAll:
-            return "/api/cats"
+        case .tags:
+            return Endpoints.getTags
+        case .cats:
+            return Endpoints.getCats
         }
     }
     
@@ -36,9 +36,9 @@ extension GalleryAPI: TargetType {
 
     var task: Task {
         switch self {
-        case .getAll(let params):
-            return .requestParameters(parameters: ["tags" : params.tags, "skip" : params.skip, "limit" : params.limit], encoding: URLEncoding.default)
-        case .getTags:
+        case .cats(let params):
+            return .requestParameters(parameters: [Keys.tags : params.tags, Keys.skip : params.skip, Keys.limit : params.limit], encoding: URLEncoding.default)
+        case .tags:
             return .requestPlain
         }
     }
